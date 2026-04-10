@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>H-AdminSim: A Multi-Agent Simulator for Realistic Hospital Administrative Workflows with FHIR Integration</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <p class="venue-badge">
+        CHIL 2026 &nbsp;·&nbsp; <span class="highlight">Conference on Health, Inference, and Learning</span>
+      </p>
+
+      <h1 class="paper-title">H-AdminSim</h1>
+      <h2 class="paper-subtitle">A Multi-Agent Simulator for Realistic Hospital Administrative Workflows with FHIR Integration</h2>
+
+      <!-- Authors -->
+      <div class="authors">
+        <span class="author">Jun-Min Lee<sup>1</sup></span>
+        &nbsp;&nbsp;
+        <span class="author">Meong Hi Son<sup>2</sup></span>
+        &nbsp;&nbsp;
+        <span class="author">Edward Choi<sup>1</sup></span>
+      </div>
+
+      <div class="affiliations">
+        <span><sup>1</sup>KAIST</span>
+        <span><sup>2</sup>Samsung Medical Center</span>
+      </div>
+
+      <!-- Links -->
+      <div class="links">
+        <a href="https://arxiv.org/pdf/2602.05407" class="btn btn-primary" target="_blank">
+          <i class="fas fa-file-pdf"></i> Paper
+        </a>
+        <a href="https://github.com/ljm565/H-AdminSim" class="btn btn-dark" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://pypi.org/project/h-adminsim/" class="btn btn-teal" target="_blank">
+          <i class="fab fa-python"></i> PyPI
+        </a>
+        <a href="https://ljm565.github.io/medworld/" class="btn btn-outline" target="_blank">
+          <i class="fas fa-circle-play"></i> Demo
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Teaser Diagram -->
+  <section class="teaser">
+    <div class="container">
+      <div class="teaser-card">
+        <div class="teaser-diagram">
+          <div class="diagram-row">
+
+            <!-- Left: Data Synthesis -->
+            <div class="diagram-box data-box">
+              <div class="box-icon"><i class="fas fa-database"></i></div>
+              <div class="box-title">Data Synthesis</div>
+              <div class="box-desc">Care level-specific patient profile generation with 194 disease-symptom pairs</div>
+              <div class="box-items">
+                <span>Primary Care</span>
+                <span>Secondary Care</span>
+                <span>Tertiary Care</span>
+              </div>
+            </div>
+
+            <div class="arrow-right"><i class="fas fa-arrow-right"></i></div>
+
+            <!-- Center: Multi-Agent Simulation -->
+            <div class="diagram-box sim-box">
+              <div class="box-icon"><i class="fas fa-users"></i></div>
+              <div class="box-title">Multi-Agent Simulation</div>
+              <div class="box-desc">LLM-driven admin staff &amp; outpatient agents with FHIR R5 integration</div>
+              <div class="box-items">
+                <span>Patient Intake</span>
+                <span>Appointment Scheduling</span>
+                <span>FHIR Integration</span>
+              </div>
+            </div>
+
+            <div class="arrow-right"><i class="fas fa-arrow-right"></i></div>
+
+            <!-- Right: Evaluation -->
+            <div class="diagram-box eval-box">
+              <div class="box-icon"><i class="fas fa-chart-bar"></i></div>
+              <div class="box-title">Evaluation</div>
+              <div class="box-desc">Rubric-based quantitative assessment across 5 diverse LLM backends</div>
+              <div class="box-items">
+                <span>GPT-5</span>
+                <span>Gemini 2.5</span>
+                <span>Open-Source</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <p class="teaser-caption">H-AdminSim generates realistic hospital administrative workflows by synthesizing patient data across care levels, simulating multi-agent interactions with FHIR integration, and evaluating LLM performance with detailed rubrics.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Abstract -->
+  <section class="section" id="abstract">
+    <div class="container narrow">
+      <h2 class="section-title">Summary</h2>
+      <p class="abstract-text">
+        Hospital administrative operations represent one of the most demanding components of modern healthcare infrastructure. Large hospitals must process over <strong>10,000 administrative requests daily</strong> &mdash; spanning patient intake, appointment scheduling, insurance verification, and inter-departmental coordination &mdash; yet existing benchmarks focus narrowly on patient-physician dialogues or isolated subtasks, leaving end-to-end administrative complexity largely unstudied.
+      </p>
+      <p class="abstract-text">
+        We present <strong>H-AdminSim</strong>, a multi-agent simulation framework for modeling realistic hospital administrative workflows at scale. H-AdminSim synthesizes care level-specific patient profiles across primary, secondary, and tertiary hospitals using <strong>194 disease-symptom pairs</strong> spanning 9 internal medicine departments, then simulates multi-turn interactions between LLM-driven administrative staff agents and first-visit outpatient agents. Optional <strong>FHIR R5 integration</strong> enables standardized interoperability with real hospital information systems. We evaluate <strong>5 diverse LLM</strong> backends using detailed rubric-based scoring, establishing H-AdminSim as a principled testbed for systematic evaluation of LLM-driven administrative automation.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Key Contributions -->
+  <section class="section section-alt" id="contributions">
+    <div class="container">
+      <h2 class="section-title">Key Contributions</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon blue"><i class="fas fa-network-wired"></i></div>
+          <h3>End-to-End First-Visit Simulation</h3>
+          <p>A complete pipeline covering the full first-visit outpatient journey &mdash; from patient data synthesis, multi-agent administrative workflow simulation to quantitative evaluation &mdash; the first framework to model end-to-end first-visit hospital administrative operations at scale.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon green"><i class="fas fa-hospital"></i></div>
+          <h3>Realistic Data Generation</h3>
+          <p>Care level-specific patient profile synthesis using 194 disease-symptom pairs across 9 internal medicine departments and 3 hospital tiers, with configurable patient demographics and preference types.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon purple"><i class="fas fa-plug"></i></div>
+          <h3>FHIR Integration &amp; Model Flexibility</h3>
+          <p>Optional FHIR R5-compatible output for deployment in real hospital information systems, with multi-backend LLM support (GPT, Gemini, open-source via vLLM) and concurrent simulation capabilities.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon teal"><i class="fas fa-sliders"></i></div>
+          <h3>User-Defined Custom Data</h3>
+          <p>Beyond the built-in 194 disease-symptom pairs, users can supply their own patient data and disease profiles, enabling simulation in custom hospital settings and specialty domains outside the default 9 internal medicine departments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Method -->
+  <section class="section" id="method">
+    <div class="container">
+      <h2 class="section-title">Method</h2>
+
+      <div class="method-steps">
+
+        <!-- Step 1 -->
+        <div class="method-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Care Level-Specific Data Synthesis</h3>
+            <p>H-AdminSim generates realistic patient profiles tailored to each tier of the healthcare system. A hierarchical synthesis pipeline creates disease profiles using 194 disease-symptom pairs spanning 9 internal medicine departments, with configurable patient volumes per tier (516 / 769 / 5,052 patients).</p>
+            <div class="disease-chips" style="align-items:center;">
+              <span class="chip-label">Care Level:</span>
+              <span class="chip">Primary Care</span>
+              <span class="chip green">Secondary Care</span>
+              <span class="chip purple">Tertiary Care</span>
+            </div>
+            <div class="disease-chips" style="margin-top:10px; align-items:center;">
+              <span class="chip-label">Supported Specialties:</span>
+              <span class="chip">Cardiology</span>
+              <span class="chip green">Gastroenterology</span>
+              <span class="chip purple">Nephrology</span>
+              <span class="chip teal">Neurology</span>
+              <span class="chip amber">Pulmonology</span>
+              <span class="chip rose">Hematology / Oncology</span>
+              <span class="chip">Endocrinology</span>
+              <span class="chip green">Rheumatology</span>
+              <span class="chip purple">Infectious Disease</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="method-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Administrative Workflow Simulation</h3>
+            <p>The framework simulates two core administrative tasks &mdash; <strong>patient intake</strong> and <strong>appointment scheduling</strong> &mdash; between LLM-driven staff agents and first-visit outpatient agents. Patient intake covers disease profiling across 9 internal medicine departments, while scheduling supports three distinct patient preference types.</p>
+            <div class="axis-table">
+              <div class="axis-row header">
+                <span>Task</span><span>Details</span>
+              </div>
+              <div class="axis-row">
+                <span><i class="fas fa-clipboard-list"></i> &nbsp;Patient Intake</span>
+                <span>194 disease-symptom pairs across 9 internal medicine departments; structured history collection via multi-turn dialogue</span>
+              </div>
+              <div class="axis-row">
+                <span><i class="fas fa-calendar-check"></i> &nbsp;Appointment Scheduling</span>
+                <span>ASAP, Physician Preference, Date Preference &mdash; using FHIR R5 Practitioner, Schedule, Slot, and Appointment resources</span>
+              </div>
+              <div class="axis-row">
+                <span><i class="fas fa-exchange-alt"></i> &nbsp;Interaction Mode</span>
+                <span>Tool-calling and LLM reasoning-based scheduling strategies; generator-based utterance streaming for real-time monitoring</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="method-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>LLM Backend Integration</h3>
+            <p>H-AdminSim is model-agnostic and supports multiple LLM backends, enabling systematic cross-model benchmarking. Concurrent simulation is supported for high-throughput evaluation runs. Five LLMs were evaluated spanning commercial and open-source families.</p>
+            <div class="highlight-box">
+              <i class="fas fa-bolt"></i>
+              Evaluated: <strong>GPT-5 Mini</strong> <strong>GPT-5 Nano</strong> <strong>Gemini 2.5 Flash</strong> <strong>Llama 3.3 70B</strong> <strong>Qwen 3 32B</strong> &mdash; swap backends with a single config change
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="method-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Rubric-Based Evaluation Framework</h3>
+            <p>Each simulation run is evaluated using detailed rubrics that assess LLM performance across key administrative dimensions, enabling reproducible and standardized comparison across models and hospital tiers.</p>
+            <div class="rq-grid">
+              <div class="rq-card">
+                <div class="rq-label">RQ1</div>
+                <strong>Task Completion</strong>
+                <p>Rubric-scored assessment of whether the admin agent successfully completed intake or scheduling tasks end-to-end</p>
+              </div>
+              <div class="rq-card">
+                <div class="rq-label">RQ2</div>
+                <strong>Scheduling Accuracy</strong>
+                <p>Correctness of scheduled appointments relative to patient preference type and available FHIR Slot resources</p>
+              </div>
+              <div class="rq-card">
+                <div class="rq-label">RQ3</div>
+                <strong>Interaction Quality</strong>
+                <p>Naturalness, coherence, and clinical plausibility of multi-turn dialogue, scored by human evaluators (4.11 / 5)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Results -->
+  <section class="section section-alt" id="results">
+    <div class="container">
+      <h2 class="section-title">Framework Overview</h2>
+      <div class="results-grid">
+
+        <div class="result-card">
+          <div class="result-number">9</div>
+          <div class="result-label">Internal Medicine Departments</div>
+          <div class="result-desc">194 disease-symptom pairs for realistic patient intake simulation</div>
+        </div>
+
+        <div class="result-card green-top">
+          <div class="result-number">3</div>
+          <div class="result-label">Care Levels</div>
+          <div class="result-desc">Primary (516), secondary (769), and tertiary (5,052) patient profiles</div>
+        </div>
+
+        <div class="result-card purple-top">
+          <div class="result-number">5</div>
+          <div class="result-label">LLMs Evaluated</div>
+          <div class="result-desc">GPT-5 Mini/Nano, Gemini 2.5 Flash, Llama 3.3 70B, Qwen 3 32B</div>
+        </div>
+
+        <div class="result-card teal-top">
+          <div class="result-number">v1.2<span>.2</span></div>
+          <div class="result-label">Current PyPI Release</div>
+          <div class="result-desc">Actively maintained; supports Python 3.11 and 3.12</div>
+        </div>
+
+      </div>
+
+      <div class="results-note">
+        <i class="fas fa-chart-line"></i>
+        <span><strong>Top results:</strong> Gemini 2.5 Flash achieves <strong>88.9%</strong> on primary care patient intake. Tool-based scheduling reaches near-perfect accuracy (<strong>~99.8%</strong>). Human evaluators rate interaction quality at <strong>4.11 / 5</strong> &mdash; demonstrating the framework's ability to drive rigorous LLM benchmarking for real-world hospital administrative tasks.</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Installation -->
+  <section class="section" id="installation">
+    <div class="container">
+      <h2 class="section-title">Installation</h2>
+      <div class="install-layout">
+        <div class="install-info">
+          <p>H-AdminSim is available as a Python package on PyPI. Install it with pip to start simulating hospital administrative workflows immediately.</p>
+          <table class="install-table">
+            <thead>
+              <tr><th>Property</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Package</td><td>h-adminsim</td></tr>
+              <tr><td>Version</td><td>1.2.2</td></tr>
+              <tr><td>Python</td><td>&ge;3.11, &lt;3.13</td></tr>
+              <tr><td>License</td><td>Apache 2.0</td></tr>
+              <tr><td>Author</td><td>Jun-Min Lee</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="install-access">
+          <div class="access-card">
+            <i class="fab fa-python fa-2x"></i>
+            <h3>Install via pip</h3>
+            <p>Requires Python 3.11 or 3.12. Install the package and all dependencies with a single command.</p>
+            <div class="code-block">
+              <code>pip install h-adminsim</code>
+            </div>
+            <div class="access-buttons">
+              <a href="https://pypi.org/project/h-adminsim/" class="btn btn-primary" target="_blank">
+                <i class="fab fa-python"></i> PyPI
+              </a>
+              <a href="https://github.com/ljm565/H-AdminSim" class="btn btn-dark" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Demo -->
+  <section class="section section-alt" id="demo">
+    <div class="container narrow">
+      <h2 class="section-title">Live Demo</h2>
+      <div class="access-card" style="max-width:520px; margin:0 auto;">
+        <i class="fas fa-circle-play fa-2x"></i>
+        <h3>MEdWorld &mdash; Hospital Administration Simulator</h3>
+        <p>Try H-AdminSim interactively. Configure staff and patient counts, provide an OpenAI API key, and watch the multi-agent administrative simulation unfold in real time.</p>
+        <a href="https://ljm565.github.io/medworld/" class="btn btn-primary" target="_blank" style="margin-top:4px;">
+          <i class="fas fa-circle-play"></i> Launch Demo
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Citation -->
+  <section class="section" id="citation">
+    <div class="container narrow">
+      <h2 class="section-title">Citation</h2>
+      <pre class="bibtex"><code>@inproceedings{lee2026hadminsim,
+  title     = {H-AdminSim: A Multi-Agent Simulator for Realistic
+               Hospital Administrative Workflows with FHIR Integration},
+  author    = {Lee, Jun-Min and Son, Meong Hi and Choi, Edward},
+  booktitle = {Proceedings of the ACM Conference on Health,
+               Inference, and Learning},
+  series    = {CHIL '26},
+  year      = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>
+        H-AdminSim &mdash; CHIL 2026 &nbsp;|&nbsp;
+        <a href="https://arxiv.org/pdf/2602.05407" target="_blank">Paper</a> &nbsp;|&nbsp;
+        <a href="https://github.com/ljm565/H-AdminSim" target="_blank">GitHub</a> &nbsp;|&nbsp;
+        <a href="https://pypi.org/project/h-adminsim/" target="_blank">PyPI</a> &nbsp;|&nbsp;
+        <a href="https://ljm565.github.io/medworld/" target="_blank">Demo</a>
+      </p>
+      <p class="footer-cc">Licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License 2.0</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
