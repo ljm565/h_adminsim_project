@@ -135,7 +135,7 @@
         <div class="card">
           <div class="card-icon blue"><i class="fas fa-hospital"></i></div>
           <h3>Realistic Data Generation</h3>
-          <p>Care level-specific patient profile synthesis using 194 disease-symptom pairs across 9 internal medicine departments and 3 hospital tiers, with configurable patient demographics and preference types.</p>
+          <p>Care level-specific patient profile synthesis using 194 disease-symptom pairs across 9 internal medicine departments and 3 hospital care levels, with configurable patient demographics and preference types.</p>
         </div>
         <div class="card">
           <div class="card-icon amber"><i class="fas fa-plug"></i></div>
@@ -199,7 +199,7 @@
           <div class="step-number">2</div>
           <div class="step-content">
             <h3>Administrative Workflow Simulation</h3>
-            <p>The framework simulates two core administrative tasks &mdash; <strong>patient intake</strong> and <strong>appointment scheduling</strong> &mdash; between LLM-driven staff agents and first-visit outpatient agents through <strong>dialogue-based interactions</strong>.</p>
+            <p>The framework simulates two core administrative tasks &mdash; <strong>patient intake</strong> and <strong>appointment scheduling</strong> &mdash; between LLM-driven staff agents and first-visit outpatient agents through <strong>dialogue-based interactions</strong>. A virtual <strong>time flow</strong> is implemented to support time-dependent tasks such as scheduling, enabling realistic simulation of temporal workflows.</p>
             <div class="axis-table">
               <div class="axis-row header">
                 <span>Task</span><span>Details</span>
@@ -225,10 +225,10 @@
           <div class="step-number">3</div>
           <div class="step-content">
             <h3>LLM Backend Integration</h3>
-            <p>H-AdminSim is model-agnostic and supports multiple LLM backends, enabling systematic cross-model benchmarking. Concurrent simulation is supported for high-throughput evaluation runs. Five LLMs were evaluated spanning commercial and open-source families.</p>
+            <p>H-AdminSim is model-agnostic and supports multiple LLM backends, enabling systematic cross-model benchmarking. Different models can be assigned per agent role, with support for GPT and Gemini series models as well as open-source models via vLLM.</p>
             <div class="highlight-box">
               <i class="fas fa-bolt"></i>
-              Evaluated: <strong>GPT-5 Mini</strong> <strong>GPT-5 Nano</strong> <strong>Gemini 2.5 Flash</strong> <strong>Llama 3.3 70B</strong> <strong>Qwen 3 32B</strong> &mdash; swap backends with a single config change
+              Evaluated: <strong>GPT-5 Mini</strong> <strong>GPT-5 Nano</strong> <strong>Gemini 2.5 Flash</strong> <strong>Llama 3.3 70B</strong> <strong>Qwen 3 32B</strong>
             </div>
           </div>
         </div>
@@ -238,22 +238,22 @@
           <div class="step-number">4</div>
           <div class="step-content">
             <h3>Rubric-Based Evaluation Framework</h3>
-            <p>Each simulation run is evaluated using detailed rubrics that assess LLM performance across key administrative dimensions, enabling reproducible and standardized comparison across models and hospital tiers.</p>
+            <p>Each simulation run is evaluated using detailed rubrics that assess LLM performance across key administrative dimensions, enabling reproducible and standardized comparison across models and hospital care levels.</p>
             <div class="rq-grid">
               <div class="rq-card">
                 <div class="rq-label">RQ1</div>
-                <strong>Task Completion</strong>
-                <p>Rubric-scored assessment of whether the admin agent successfully completed intake or scheduling tasks end-to-end</p>
+                <strong>Intake Quality</strong>
+                <p>Evaluates the accuracy of the staff agent in department assignment, patient information extraction, and data structuring, as well as the fidelity of the patient agent in faithfully simulating the assigned patient profile.</p>
               </div>
               <div class="rq-card">
                 <div class="rq-label">RQ2</div>
                 <strong>Scheduling Accuracy</strong>
-                <p>Correctness of scheduled appointments relative to patient preference type and available FHIR Slot resources</p>
+                <p>Correctness of scheduled appointments relative to patient preference type and available FHIR Slot resources, evaluated separately for tool-calling and pure LLM reasoning-based strategies.</p>
               </div>
               <div class="rq-card">
                 <div class="rq-label">RQ3</div>
                 <strong>Interaction Quality</strong>
-                <p>Naturalness, coherence, and clinical plausibility of multi-turn dialogue, scored by human evaluators (4.11 / 5)</p>
+                <p>Multi-turn dialogue assessed by human evaluators across four criteria: naturalness, response appropriateness, dialogue flow, and overall quality (avg. 4.11 / 5).</p>
               </div>
             </div>
           </div>
@@ -278,7 +278,7 @@
 
         <div class="result-card green-top">
           <div class="result-number">3</div>
-          <div class="result-label">Care Levels</div>
+          <div class="result-label">Care Levels Evaluated</div>
           <div class="result-desc">Primary (516), secondary (769), and tertiary (5,052) patient profiles</div>
         </div>
 
@@ -328,7 +328,7 @@
           <div class="access-card">
             <i class="fab fa-python fa-2x"></i>
             <h3>Install via pip</h3>
-            <p>Requires Python 3.11 or 3.12. Install the package and all dependencies with a single command.</p>
+            <p>Install the package and all dependencies with a single command.</p>
             <div class="code-block">
               <code>pip install h-adminsim</code>
             </div>
