@@ -320,6 +320,7 @@ body {
   border: 1px solid var(--gray-200);
   border-left: 4px solid var(--primary);
   transition: transform 0.2s;
+  min-height: 380px;
 }
 .card:hover { transform: translateX(4px); }
 .card:nth-child(2) { border-left-color: var(--sky); }
