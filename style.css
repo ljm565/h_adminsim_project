@@ -575,7 +575,7 @@ body {
   padding: 24px;
   text-align: center;
 }
-.access-card i { color: var(--primary); margin-bottom: 12px; display: block; }
+.access-card > i { color: var(--primary); margin-bottom: 12px; display: block; }
 .access-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
 .access-card p { font-size: 13px; color: var(--gray-500); margin-bottom: 16px; }
 
