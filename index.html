@@ -128,27 +128,27 @@
       <h2 class="section-title">Key Contributions</h2>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-icon blue"><i class="fas fa-network-wired"></i></div>
+          <div class="card-icon green"><i class="fas fa-network-wired"></i></div>
           <h3>End-to-End First-Visit Simulation</h3>
           <p>A complete pipeline covering the full first-visit outpatient journey &mdash; from patient data synthesis, multi-agent administrative workflow simulation to quantitative evaluation &mdash; the first framework to model end-to-end first-visit hospital administrative operations at scale.</p>
         </div>
         <div class="card">
-          <div class="card-icon green"><i class="fas fa-hospital"></i></div>
+          <div class="card-icon blue"><i class="fas fa-hospital"></i></div>
           <h3>Realistic Data Generation</h3>
           <p>Care level-specific patient profile synthesis using 194 disease-symptom pairs across 9 internal medicine departments and 3 hospital tiers, with configurable patient demographics and preference types.</p>
         </div>
         <div class="card">
-          <div class="card-icon purple"><i class="fas fa-plug"></i></div>
+          <div class="card-icon amber"><i class="fas fa-plug"></i></div>
           <h3>FHIR Integration &amp; Model Flexibility</h3>
           <p>Optional FHIR R5-compatible output for deployment in real hospital information systems, with multi-backend LLM support (GPT, Gemini, open-source via vLLM) and concurrent simulation capabilities.</p>
         </div>
         <div class="card">
-          <div class="card-icon teal"><i class="fas fa-sliders"></i></div>
+          <div class="card-icon purple"><i class="fas fa-sliders"></i></div>
           <h3>User-Defined Custom Data</h3>
           <p>Beyond the built-in 194 disease-symptom pairs, users can supply their own patient data and disease profiles, enabling simulation in custom hospital settings and specialty domains outside the default 9 internal medicine departments.</p>
         </div>
         <div class="card">
-          <div class="card-icon amber"><i class="fas fa-calendar-days"></i></div>
+          <div class="card-icon teal"><i class="fas fa-calendar-days"></i></div>
           <h3>Flexible Simulation Conditions</h3>
           <p>Users can configure simulation-level parameters such as the simulation period, number of patients, and scheduling constraints, enabling controlled experiments and stress-testing under diverse operational conditions.</p>
         </div>
@@ -172,21 +172,21 @@
             <p>H-AdminSim generates realistic patient profiles tailored to each tier of the healthcare system. A hierarchical synthesis pipeline creates disease profiles using 194 disease-symptom pairs spanning 9 internal medicine departments, with configurable patient volumes per tier (516 / 769 / 5,052 patients).</p>
             <div class="disease-chips" style="align-items:center;">
               <span class="chip-label">Care Level:</span>
-              <span class="chip">Primary Care</span>
-              <span class="chip green">Secondary Care</span>
-              <span class="chip purple">Tertiary Care</span>
+              <span class="chip green">Primary Care</span>
+              <span class="chip blue">Secondary Care</span>
+              <span class="chip amber">Tertiary Care</span>
             </div>
             <div class="disease-chips" style="margin-top:10px; align-items:center;">
               <span class="chip-label">Supported Specialties:</span>
-              <span class="chip">Cardiology</span>
               <span class="chip green">Gastroenterology</span>
-              <span class="chip purple">Nephrology</span>
-              <span class="chip teal">Neurology</span>
+              <span class="chip blue">Cardiology</span>
               <span class="chip amber">Pulmonology</span>
+              <span class="chip purple">Endocrinology / Metabolism</span>
+              <span class="chip teal">Nephrology</span>
               <span class="chip rose">Hematology / Oncology</span>
-              <span class="chip">Endocrinology</span>
-              <span class="chip green">Rheumatology</span>
-              <span class="chip purple">Infectious Disease</span>
+              <span class="chip green">Allergy</span>
+              <span class="chip blue">Infectious Disease</span>
+              <span class="chip amber">Rheumatology</span>
             </div>
           </div>
         </div>

@@ -325,6 +325,7 @@ body {
 .card:nth-child(2) { border-left-color: var(--sky); }
 .card:nth-child(3) { border-left-color: var(--accent); }
 .card:nth-child(4) { border-left-color: var(--violet); }
+.card:nth-child(5) { border-left-color: #0d9488; }
 
 .card-icon {
   width: 48px; height: 48px;
@@ -336,7 +337,8 @@ body {
 .card-icon.blue   { background: var(--sky-100);     color: var(--sky); }
 .card-icon.green  { background: var(--primary-100); color: var(--primary-dark); }
 .card-icon.purple { background: var(--violet-100);  color: var(--violet); }
-.card-icon.teal   { background: var(--primary-100); color: var(--primary-dark); }
+.card-icon.teal   { background: #ccfbf1;            color: #0f766e; }
+.card-icon.amber  { background: var(--accent-100);  color: var(--accent-dark); }
 
 .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
 .card p  { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
@@ -407,7 +409,8 @@ body {
   font-size: 13px;
   font-weight: 600;
 }
-.chip.green  { background: var(--sky-100);    color: var(--sky); }
+.chip.blue   { background: var(--sky-100);     color: var(--sky); }
+.chip.green  { background: var(--primary-100); color: var(--primary-dark); }
 .chip.purple { background: var(--violet-100); color: #5b21b6; }
 .chip.teal   { background: #ccfbf1;           color: #0f766e; }
 .chip.amber  { background: var(--accent-100); color: var(--accent-dark); }
