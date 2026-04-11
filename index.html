@@ -113,7 +113,7 @@
     <div class="container narrow">
       <h2 class="section-title">Summary</h2>
       <p class="abstract-text">
-        Hospital administrative operations represent one of the most demanding components of modern healthcare infrastructure. Large hospitals must process over <strong>10,000 administrative requests daily</strong> &mdash; spanning patient intake, appointment scheduling, insurance verification, and inter-departmental coordination &mdash; yet existing benchmarks focus narrowly on patient-physician dialogues or isolated subtasks, leaving end-to-end administrative complexity largely unstudied.
+        Hospital administrative operations represent one of the most demanding components of modern healthcare infrastructure. Large hospitals must process over <strong>10,000 administrative requests daily</strong> &mdash; spanning patient intake, appointment scheduling, insurance verification, and inter-departmental coordination &mdash; yet existing benchmarks focus narrowly on patient-physician dialogues or isolated subtasks, leaving administrative complexity largely unstudied.
       </p>
       <p class="abstract-text">
         We present <strong>H-AdminSim</strong>, a multi-agent simulation framework for modeling realistic hospital administrative workflows at scale. H-AdminSim synthesizes care level-specific patient profiles across primary, secondary, and tertiary hospitals using <strong>194 disease-symptom pairs</strong> spanning 9 internal medicine departments, then simulates multi-turn interactions between LLM-driven administrative staff agents and first-visit outpatient agents. Optional <strong>FHIR R5 integration</strong> enables standardized interoperability with real hospital information systems. We evaluate <strong>5 diverse LLM</strong> backends using detailed rubric-based scoring, establishing H-AdminSim as a principled testbed for systematic evaluation of LLM-driven administrative automation.
@@ -146,6 +146,11 @@
           <div class="card-icon teal"><i class="fas fa-sliders"></i></div>
           <h3>User-Defined Custom Data</h3>
           <p>Beyond the built-in 194 disease-symptom pairs, users can supply their own patient data and disease profiles, enabling simulation in custom hospital settings and specialty domains outside the default 9 internal medicine departments.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon amber"><i class="fas fa-calendar-days"></i></div>
+          <h3>Flexible Simulation Conditions</h3>
+          <p>Users can configure simulation-level parameters such as the simulation period, number of patients, and scheduling constraints, enabling controlled experiments and stress-testing under diverse operational conditions.</p>
         </div>
       </div>
     </div>
@@ -281,9 +286,9 @@
         </div>
 
         <div class="result-card teal-top">
-          <div class="result-number">v1.2<span>.2</span></div>
+          <div class="result-number" id="pypi-version-badge">v1.2<span>.2</span></div>
           <div class="result-label">Current PyPI Release</div>
-          <div class="result-desc">Actively maintained; supports Python 3.11 and 3.12</div>
+          <div class="result-desc">Actively maintained</div>
         </div>
 
       </div>
@@ -309,7 +314,7 @@
             </thead>
             <tbody>
               <tr><td>Package</td><td>h-adminsim</td></tr>
-              <tr><td>Version</td><td>1.2.2</td></tr>
+              <tr><td>Version</td><td id="pypi-version-table">1.2.2</td></tr>
               <tr><td>Python</td><td>&ge;3.11, &lt;3.13</td></tr>
               <tr><td>License</td><td>Apache 2.0</td></tr>
               <tr><td>Author</td><td>Jun-Min Lee</td></tr>
@@ -359,14 +364,15 @@
   <section class="section" id="citation">
     <div class="container narrow">
       <h2 class="section-title">Citation</h2>
-      <pre class="bibtex"><code>@inproceedings{lee2026hadminsim,
-  title     = {H-AdminSim: A Multi-Agent Simulator for Realistic
-               Hospital Administrative Workflows with FHIR Integration},
-  author    = {Lee, Jun-Min and Son, Meong Hi and Choi, Edward},
-  booktitle = {Proceedings of the ACM Conference on Health,
-               Inference, and Learning},
-  series    = {CHIL '26},
-  year      = {2026}
+      <pre class="bibtex"><code>@inproceedings{lee2026hadminsimmultiagentsimulatorrealistic,
+  title         = {H-AdminSim: A Multi-Agent Simulator for Realistic Hospital Administrative Workflows with FHIR Integration}, 
+  author        = {Jun-Min Lee and Meong Hi Son and Edward Choi},
+  booktitle     = {Proceedings of the Conference on Health, Inference, and Learning (CHIL)},
+  year          = {2026},
+  eprint        = {2602.05407},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url           = {https://arxiv.org/abs/2602.05407}, 
 }</code></pre>
     </div>
   </section>
@@ -386,5 +392,19 @@
     </div>
   </footer>
 
+  <script>
+    fetch('https://pypi.org/pypi/h-adminsim/json')
+      .then(r => r.json())
+      .then(data => {
+        const ver = data.info.version;
+        const parts = ver.split('.');
+        const major = parts.slice(0, -1).join('.');
+        const minor = '.' + parts[parts.length - 1];
+        document.getElementById('pypi-version-badge').innerHTML =
+          'v' + major + '<span>' + minor + '</span>';
+        document.getElementById('pypi-version-table').textContent = ver;
+      })
+      .catch(() => {});
+  </script>
 </body>
 </html>
