@@ -10,7 +10,7 @@ Accepted at **CHIL 2026** (ACM Conference on Health, Inference, and Learning)
 - **GitHub**: https://github.com/ljm565/H-AdminSim
 - **PyPI**: https://pypi.org/project/h-adminsim/
 - **Demo**: https://ljm565.github.io/medworld/
-- **Project Page**: `index.html` (this repo)
+- **Project Page**: [`index.html` (this repo)](https://ljm565.github.io/h_adminsim_project/)
 
 ## About
 

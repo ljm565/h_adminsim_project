@@ -371,6 +371,35 @@ body {
 }
 .method-step:last-child { padding-bottom: 0; }
 
+.method-step.future .step-number {
+  background: #f9fafb;
+  color: #9ca3af;
+  border: 3px solid var(--white);
+  outline: 2px dashed #d1d5db;
+}
+.method-step.future .step-content h3 { color: #6b7280; }
+.method-step.future .step-content p  { color: #9ca3af; }
+.method-step.future::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: -44px;
+  height: 44px;
+  width: 4px;
+  background: white;
+  z-index: 0;
+}
+.method-step.future::after {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: -44px;
+  height: 44px;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, #d1d5db 0px, #d1d5db 5px, transparent 5px, transparent 10px);
+  z-index: 0;
+}
+
 .step-number {
   flex-shrink: 0;
   width: 44px; height: 44px;
