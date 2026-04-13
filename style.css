@@ -190,6 +190,22 @@ body {
 .btn-teal    { background: var(--sky); color: var(--white); }
 .btn-outline { background: var(--accent); color: var(--white); }
 
+/* ===== Video ===== */
+.video-wrapper {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  background: #000;
+  margin-bottom: 32px;
+}
+
+.video-wrapper video {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+  object-fit: contain;
+}
+
 /* ===== Teaser ===== */
 .teaser { padding: 48px 0; background: var(--gray-50); }
 
